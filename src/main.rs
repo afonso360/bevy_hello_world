@@ -1,3 +1,5 @@
+use std::thread;
+use std::time::Duration;
 use bevy::asset::AssetPlugin;
 use bevy::audio::AudioPlugin;
 use bevy::core::CorePlugin;
@@ -43,5 +45,13 @@ fn main() {
     app.add_plugin(AudioPlugin::default());
     app.add_plugin(GilrsPlugin::default());
     app.add_plugin(AnimationPlugin::default());
+
+
+    // Exit automatically so CI doesent hang
+    thread::spawn(|| {
+        thread::sleep(Duration::from_secs(10));
+        std::process::exit(0);
+    });
+
     app.run();
 }
