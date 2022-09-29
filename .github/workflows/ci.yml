@@ -29,5 +29,11 @@ jobs:
           toolchain: stable
           override: true
 
+#      - name: Install cargo-binutils
+#        run: cargo install -f cargo-binutils
+
+      - name: Install llvm-tools-preview
+        run: rustup component add llvm-tools-preview
+
       - name: Run
         run: .\cg_clif-x86_64-pc-windows-msvc\cargo-clif.exe run
