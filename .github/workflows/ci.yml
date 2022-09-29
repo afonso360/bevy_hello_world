@@ -29,8 +29,8 @@ jobs:
           toolchain: stable
           override: true
 
-#      - name: Install cargo-binutils
-#        run: cargo install -f cargo-binutils
+      - name: Install cargo-binutils
+        run: cargo install -f cargo-binutils
 
       - name: Install llvm-tools-preview
         run: rustup component add llvm-tools-preview
